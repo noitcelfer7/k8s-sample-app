@@ -1,0 +1,11 @@
+apiVersion: v2
+
+name: k8s-application
+
+description: A k8s application
+
+type: application
+
+version: 0.0.1
+
+appVersion: "0.0.1"

@@ -1,0 +1,13 @@
+deployments:
+  - name: k8s-application-1
+    image: lkszero/k8s-application:0.0.1
+    replicaCount: 1
+    port: 7777
+  - name: k8s-application-2
+    image: lkszero/k8s-application:0.0.1
+    replicaCount: 1
+    port: 7777
+  - name: k8s-application-3
+    image: lkszero/k8s-application:0.0.1
+    replicaCount: 1
+    port: 7777

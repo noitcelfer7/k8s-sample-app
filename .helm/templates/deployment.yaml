@@ -1,0 +1,23 @@
+{{- range .Values.deployments }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .name }}
+spec:
+  replicas: {{ .replicaCount }}
+  selector:
+    matchLabels:
+      tag: k8s-application
+  template:
+    metadata:
+      labels:
+        tag: k8s-application
+    spec:
+      containers:
+        - name: {{ .name }}
+          image: {{ .image }}
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: {{ .port }}
+---
+{{- end }}
