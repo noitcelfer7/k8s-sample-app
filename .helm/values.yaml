@@ -1,4 +1,4 @@
 replicaCount: 3
 image: lkszero/k8s-application:0.0.1
 servicePort: 80
-containerPort: 9999
+containerPort: 7777
