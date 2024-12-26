@@ -1,24 +1,19 @@
-{{- range .Values.deployments }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .name }}
-  namespace: argocd
+  name: k8s-application
 spec:
-  replicas: {{ .replicaCount }}
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      tag: k8s-application
+      app: k8s-application
   template:
     metadata:
       labels:
-        tag: k8s-application
+        app: k8s-application
     spec:
       containers:
-        - name: {{ .name }}
-          image: {{ .image }}
+        - image: {{ .Values.image }}
           imagePullPolicy: IfNotPresent
           ports:
-          - containerPort: {{ .port }}
----
-{{- end }}
+            - containerPort: {{ .Values.containerPort }}
