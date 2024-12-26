@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: k8s-application
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: { { .Values.replicaCount } }
   selector:
     matchLabels:
       app: k8s-application
@@ -13,7 +13,8 @@ spec:
         app: k8s-application
     spec:
       containers:
-        - image: {{ .Values.image }}
+        - image: { { .Values.image } }
+          name: k8s-application
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: {{ .Values.containerPort }}
+            - containerPort: { { .Values.containerPort } }
